@@ -1,0 +1,24 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1F2D49",
+        "titleBar.activeBackground": "#2C3F66",
+        "titleBar.activeForeground": "#F9FAFC"
+    },
+    "files.autoSave": "afterDelay",
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1433,
+            "askForPassword": true,
+            "driver": "MSSQL",
+            "connectString": "Data Source=DESKTOP-U7O86R7;Database=SportsStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+            "name": "DESKTOP-U7O86R7"
+        }
+    ]
+}

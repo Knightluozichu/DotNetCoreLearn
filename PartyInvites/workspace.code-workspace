@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#392549",
+			"titleBar.activeBackground": "#4F3466",
+			"titleBar.activeForeground": "#FCFBFD"
+		}
+	}
+}

@@ -1,0 +1,30 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@{
+    Layout=null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <title>聚会</title>
+</head>
+<body>
+    <div class="text-center">
+       <h3>我们将要开派对！</h3>
+       <h4>你被邀请了.</h4>
+        <a class="btn btn-primary" asp-action="RsvpForm">受邀信息</a>
+    </div>
+</body>
+</html>

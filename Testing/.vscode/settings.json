@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#541438",
+        "titleBar.activeBackground": "#751C4E",
+        "titleBar.activeForeground": "#FEFCFD"
+    },
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "emmet.triggerExpansionOnTab": true
+}
