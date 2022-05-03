@@ -1,0 +1,13 @@
+@page
+
+<div class="text-center">
+    <h2>购物愉快！</h2>
+    <p>完成订单 #@OrderId</p>
+    <p>我们将尽快发货！</p>
+    <a class="btn btn-primary" asp-controller="Home">返回首页</a>
+</div>
+
+@functions{
+    [BindProperty(SupportsGet = true)]
+    public string OrderId { get; set; }
+}

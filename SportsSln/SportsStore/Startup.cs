@@ -32,9 +32,12 @@ namespace SportsStore
                 opts.UseSqlServer(Configuration["ConnectionStrings:SportsStoreConnection"]);
             });
             services.AddScoped<IStoreRepository,EFStoreRepository>();
+            services.AddScoped<IOrderRepository,EFOrderRepository>();
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();
+            services.AddScoped<Cart>(sp=>SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,6 +10,7 @@ namespace SportsStore.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
     [Migration("20220215005126_Initial")]
+  
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +28,9 @@ namespace SportsStore.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -34,7 +38,7 @@ namespace SportsStore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(8,2)");
+                        .HasColumnType("decimal(8, 2)");
 
                     b.HasKey("ProductID");
 

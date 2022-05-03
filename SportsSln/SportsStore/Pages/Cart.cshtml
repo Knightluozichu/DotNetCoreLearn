@@ -19,6 +19,13 @@
                 <td class="text-left">@line.Product.Name</td>
                 <td class="text-right">@line.Product.Price.ToString("c")</td>
                 <td class="text-right">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                <td class="text-center">
+                    <form asp-page-handler="Remove" method="post">
+                        <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button class="btn btn-sm btn-danger" type="submit">删除</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
@@ -34,4 +41,5 @@
     <a href="@Model.ReturnUrl" class="btn btn-primary">
         继续购物
     </a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">提交订单</a>
 </div>
