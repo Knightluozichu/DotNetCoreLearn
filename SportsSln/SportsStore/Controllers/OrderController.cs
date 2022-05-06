@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 using System.Linq;
 
-namespace SportsSotre.Controllers
+namespace SportsStore.Controllers
 {
     public class OrderController : Controller
     {

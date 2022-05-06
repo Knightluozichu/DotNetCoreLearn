@@ -11,5 +11,22 @@ namespace SportsStore.Models
         {
             context = ctx;
         }
+
+        void IStoreRepository.SaveProduct(Product p)
+        {
+            context.SaveChanges();
+        }
+
+        void IStoreRepository.CreateProduct(Product p)
+        {
+            context.Add(p);
+            context.SaveChanges();
+        }
+
+        void IStoreRepository.DeleteProduct(Product p)
+        {
+            context.Remove(p);
+            context.SaveChanges();
+        }
     }
 }

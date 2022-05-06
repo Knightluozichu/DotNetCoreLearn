@@ -10,7 +10,7 @@ namespace SportsStore.Models
 
         public void SaveOrder(Order order)
         {
-            context.AddRange(order.Lines.Select(l=>l.Product));
+            context.AttachRange(order.Lines.Select(l=>l.Product));
             if(order.OrderID == 0)
             {
                 context.Orders.Add(order);

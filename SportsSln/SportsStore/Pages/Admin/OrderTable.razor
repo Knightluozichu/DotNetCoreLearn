@@ -1,0 +1,57 @@
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center" colspan="5">@TableTitle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Orders?.Count()>0)
+        {
+            @foreach (var o in Orders)
+            {
+                <tr>
+                    <td>@o.Name</td>
+                    <td>@o.Zip</td>
+                    <th>商品</th>
+                    <td>数量</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" @onclick="@(e => OrderSelected.InvokeAsync(o.OrderID))">
+                            @ButtonLabel
+                        </button>
+                    </td>
+                </tr>
+                @foreach (var line in o.Lines)
+                {
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>@line.Product.Name</td>
+                        <td>@line.Quantity</td>
+                        <td></td>
+                    </tr>
+                }
+            }
+        }
+        else{
+            <tr>
+                <td colspan="5" calss="text-context">没订单</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code{
+
+    [Parameter]
+    public string TableTitle { get; set; } = "Orders";
+
+        [Parameter]
+    public IEnumerable<Order> Orders { get; set; }
+
+        [Parameter]
+    public string ButtonLabel { get; set; } = "Ship";
+
+        [Parameter]
+    public EventCallback<int> OrderSelected { get; set; }
+
+
+}
