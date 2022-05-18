@@ -10,7 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SportsStore.Models;
+using Microsoft.AspNetCore.Identity;
 
+// "SportsStoreConnection": "Data Source=DESKTOP-U7O86R7;Database=SportsStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
 namespace SportsStore
 {
     public class Startup
@@ -39,11 +41,23 @@ namespace SportsStore
             services.AddScoped<Cart>(sp=>SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
             services.AddServerSideBlazor();
+
+            services.AddDbContext<AppIdentityDbContext>(options=>options.UseSqlServer(Configuration["ConnectionStrings:IdentityConnection"]));
+            services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if(env.IsProduction())
+            {
+                app.UseExceptionHandler("/error");
+            }
+            else{
+                app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+            }
+
             if (env.IsDevelopment())
             {
             }
@@ -53,6 +67,10 @@ namespace SportsStore
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("catpage","{category}/Page{productPage:int}",new {Controller = "Home", action = "Index"});
@@ -70,6 +88,7 @@ namespace SportsStore
             });
 
             SeeData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
