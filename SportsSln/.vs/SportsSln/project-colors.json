@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "ef5b5419-04ad-4b13-802d-50d6b27c4c3c": {
+      "ProjectGuid": "ef5b5419-04ad-4b13-802d-50d6b27c4c3c",
+      "DisplayName": "SportsStore.Tests",
+      "ColorIndex": 0
+    },
+    "bf047c4e-3d76-48c5-933b-9cc64392bd84": {
+      "ProjectGuid": "bf047c4e-3d76-48c5-933b-9cc64392bd84",
+      "DisplayName": "SportsStore",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
